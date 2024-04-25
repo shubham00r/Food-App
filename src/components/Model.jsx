@@ -2,8 +2,10 @@ import React, { useState, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineClose } from "react-icons/ai";
 import Login from "./Login";
+import Signup from "./Signup";
 const Model = ({ open, setOpen, show, setshow }) => {
   // const [show, setShow] = useState(false);
+  const [page, setpage] = useState(true);
   return (
     <>
       <Transition.Root show={open} as={Fragment}>
@@ -33,42 +35,26 @@ const Model = ({ open, setOpen, show, setshow }) => {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="w-full transition-all transform bg-white rounded-lg shadow-xl md:my-8 md:max-w-xl">
-                  <div className="relative  w-full h-[full] ">
-                    <div>
-                      <Login show={show} setshow={setshow} />
-                    </div>
-                    {/* <h1 className="text-lg font-medium text-slate-50">
-                      Select Your Product
-                    </h1>
-                    <div
-                      onClick={() => setOpen(false)}
-                      className="absolute cursor-pointer right-4 top-4 "
-                    >
-                      <AiOutlineClose className="w-6 h-6 text-slate-700" />
-                    </div>
-                    <div>
-                      {" "}
+                  <div className=" ">
+                    {page ? (
                       <div>
-                        <div className="container mx-auto">
-                          <h1 className="mt-5 text-xl font-bold underline">
-                            Refund policy:
-                          </h1>
-                          <p className="mt-2 text-base font-normal">
-                            Online Laundry Wala is not responsible if clothes
-                            are given to the pickup agent without generating the
-                            booking online/whatsapp support. <br />
-                            <br /> Online Laundry Wala is not responsible for
-                            fastness of colour or shrinkage of garments & does
-                            not guarantee 100% removal of stains <br /> <br />{" "}
-                            Any issue with garments/delivery shall be reported
-                            immediately during delivery to Online Laundry Wala
-                            support team. <br /> <br /> 10 times of the washing
-                            rate will be given for particular articles
-                            lost/damaged if claimed within 24 hours of delivery.
-                          </p>
-                        </div>
+                        <Login
+                          show={show}
+                          setshow={setshow}
+                          page={page}
+                          setpage={setpage}
+                        />
                       </div>
-                    </div> */}
+                    ) : (
+                      <div>
+                        <Signup
+                          page={page}
+                          setpage={setpage}
+                          show={show}
+                          setshow={setshow}
+                        />
+                      </div>
+                    )}
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

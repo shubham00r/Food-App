@@ -3,11 +3,6 @@ import { BsToggle2Off } from "react-icons/bs";
 import { BsToggle2On } from "react-icons/bs";
 import FoodData from "../Data/FoodData";
 function Navbar({ bgcolor, color, togglebtn, toggle, setshow, show }) {
-  const [input, setinput] = useState("");
-  console.log(input);
-  const handlechange = () => {
-    setinput;
-  };
   return (
     <div
       className=""

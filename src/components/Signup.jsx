@@ -1,28 +1,33 @@
 import React, { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Login = ({ show, setshow, page, setpage }) => {
+
+const Signup = ({ show, setshow, page, setpage }) => {
+  const navigate = useNavigate();
   const [input, setinput] = useState({
+    name: "",
     email: "",
     password: "",
   });
 
-  const handleLogin = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    let userData = JSON.parse(localStorage.getItem("user"));
-    if (input.email == userData.email && input.password == userData.password) {
-      setshow(false);
-      toast("Login SuccessFully", {
-        type: "success",
-        hideProgressBar: true,
-      });
-    } else {
-      toast("User not Found ", {
+    if (input.name == "" || input.email == "" || input.password == "") {
+      toast("Please fill the Form", {
         type: "error",
         hideProgressBar: true,
         theme: "dark",
       });
+    } else {
+      localStorage.setItem("user", JSON.stringify(input));
+      toast("Sign UP SuccessFull", {
+        type: "success",
+        hideProgressBar: true,
+      });
+      setshow(false);
+      navigate("/");
     }
   };
   return (
@@ -30,23 +35,32 @@ const Login = ({ show, setshow, page, setpage }) => {
       <div onClick={() => setshow(!show)} className="pl-6 mt-5 cursor-pointer ">
         <FaArrowLeft />
       </div>
-      <div className="flex justify-center text-3xl font-bold ">
-        <h1>LOGIN</h1>
+      <div className="pt-2 text-3xl font-bold text-center ">
+        <h1>SIGNUP</h1>
       </div>
       <div className="pt-3 text-center text-black">
         <h3 className="pt-1 text-base ">Log in or Sign up</h3>
-        <form onSubmit={handleLogin} className="px-12 pt-2">
+        <form onSubmit={handleSubmit} className="px-12 pt-2">
           <input
             className="w-full pl-2 text-black border-2 border-solid rounded outline-none h-11 "
-            value={input.email}
-            name="email"
+            type="text"
+            name="name"
+            value={input.name}
             onChange={(e) =>
               setinput({ ...input, [e.target.name]: e.target.value })
             }
+            placeholder="Enter your Name"
+          />{" "}
+          <input
+            className="w-full pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="email"
+            name="email"
+            value={input.email}
+            onChange={(e) =>
+              setinput({ ...input, [e.target.name]: e.target.value })
+            }
             placeholder="Enter your Email"
           />{" "}
-          <br />
           <input
             className="w-full pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="password"
@@ -59,7 +73,7 @@ const Login = ({ show, setshow, page, setpage }) => {
           />{" "}
           <br />
           <button className="py-3 mt-3 rounded w-60 text-slate-50   bg-[#0C831F] ">
-            LOGIN
+            SIGNUP
           </button>
           <h1 className="mt-2">
             Dont have an account?{" "}
@@ -67,7 +81,7 @@ const Login = ({ show, setshow, page, setpage }) => {
               onClick={() => setpage(!page)}
               className="text-[#87A1E3] cursor-pointer"
             >
-              SignUp
+              Login
             </span>
           </h1>
           <div className="h-7"></div>
@@ -77,4 +91,4 @@ const Login = ({ show, setshow, page, setpage }) => {
   );
 };
 
-export default Login;
+export default Signup;
