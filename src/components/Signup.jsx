@@ -12,6 +12,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
     password: "",
   });
 
+  console.log(input);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input.name == "" || input.email == "" || input.password == "") {
@@ -22,11 +23,13 @@ const Signup = ({ show, setshow, page, setpage }) => {
       });
     } else {
       localStorage.setItem("user", JSON.stringify(input));
-      toast("Sign UP SuccessFull", {
+      localStorage.setItem("login", true);
+      toast("SignUp SuccessFull", {
         type: "success",
         hideProgressBar: true,
       });
       setshow(false);
+
       navigate("/");
     }
   };
@@ -42,7 +45,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
         <h3 className="pt-1 text-base ">Log in or Sign up</h3>
         <form onSubmit={handleSubmit} className="px-12 pt-2">
           <input
-            className="w-full pl-2 text-black border-2 border-solid rounded outline-none h-11 "
+            className="w-full focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 pl-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="text"
             name="name"
             value={input.name}
@@ -52,7 +55,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
             placeholder="Enter your Name"
           />{" "}
           <input
-            className="w-full pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
+            className="w-full focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="email"
             name="email"
             value={input.email}
@@ -62,7 +65,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
             placeholder="Enter your Email"
           />{" "}
           <input
-            className="w-full pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
+            className="w-full focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="password"
             name="password"
             value={input.password}

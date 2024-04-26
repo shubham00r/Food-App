@@ -7,7 +7,8 @@ import Cart from "./components/Cart";
 import FoodCard from "./components/FoodCard";
 import FoodDetail from "./components/FoodDetail";
 import { ToastContainer } from "react-toastify";
-import Model from "./components/Model";
+import ProRoute from "./Service/ProRoute";
+import Default from "./components/Default";
 
 function App() {
   const [bgColor, setbgColor] = useState("black");
@@ -26,6 +27,7 @@ function App() {
       // document.querySelectorAll("body").style.backgroundColor = "#cbc5c5";
     }
   };
+
   return (
     <>
       <ToastContainer
@@ -42,26 +44,29 @@ function App() {
       />
       <BrowserRouter>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                bgcolor={setbgColor}
-                color={setColor}
-                toggle={toggle}
-                togglebtn={togglebtn}
-              />
-            }
-          />
+          <Route path="/" element={<ProRoute />}>
+            <Route
+              path="/"
+              element={
+                <Home
+                  bgcolor={setbgColor}
+                  color={setColor}
+                  toggle={toggle}
+                  togglebtn={togglebtn}
+                />
+              }
+            />
 
-          <Route path="/product/:id/" element={<FoodDetail />} />
+            <Route path="/product/:id/" element={<FoodDetail />} />
 
-          <Route path="/success" element={<Succes />} />
-          <Route path="/*" element={<Error />} />
-          <Route
-            path="/cart"
-            element={<Cart setbgColor={setbgColor} setColor={setColor} />}
-          />
+            <Route path="/success" element={<Succes />} />
+            <Route path="/*" element={<Error />} />
+            <Route
+              path="/cart"
+              element={<Cart setbgColor={setbgColor} setColor={setColor} />}
+            />
+          </Route>
+          <Route path="/default" element={<Default />} />
         </Routes>
       </BrowserRouter>
     </>

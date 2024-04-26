@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { BsToggle2Off } from "react-icons/bs";
 import { BsToggle2On } from "react-icons/bs";
 import FoodData from "../Data/FoodData";
-function Navbar({ bgcolor, color, togglebtn, toggle, setshow, show }) {
+import { useNavigate } from "react-router-dom";
+
+function Navbar({ bgcolor, color, togglebtn, toggle }) {
+  const navigate = useNavigate();
+  const userRemove = () => {
+    // localStorage.removeItem("user");
+    localStorage.removeItem("login");
+    navigate("/default");
+  };
   return (
     <div
       className=""
@@ -33,17 +41,17 @@ function Navbar({ bgcolor, color, togglebtn, toggle, setshow, show }) {
         </div>
         <div>
           <button
-            onClick={() => setshow(!show)}
+            onClick={userRemove}
             className="bg-[#16A34A] p-[9px] w-20 rounded mr-5"
           >
-            Login
+            Logout
           </button>
           <input
             type="search"
             name="search"
             id=""
             placeholder="Search here"
-            onChange={(e) => setinput(e.target.value)}
+            // onChange={(e) => setinput(e.target.value)}
             // onClick={() => chek()}
             autoComplete="off"
             className="p-3 border border-gray-400 text-sm rounded-lg outline-none w-full lg:w-[25vw]  text-slate-950"

@@ -9,12 +9,12 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Model from "../components/Model";
 
-// import { BrowserRouter ,Router, Route,} from "react-router-dom";
+// import { BrowserRouter, Router, Route } from "react-router-dom";
 function Home({ color, bgColor, toggle, togglebtn }) {
-  const [open, setOpen] = useState(true);
+  // const [open, setOpen] = useState(true);
   const [filter, setFilter] = useState(FoodData);
   const [cartData, setCartData] = useState([]);
-  const [show, setshow] = useState(false);
+  // const [show, setshow] = useState(false);
   const addData = (data) => {
     setCartData([...cartData, data]);
     toast("Add To Cart Your Food", {
@@ -42,14 +42,13 @@ function Home({ color, bgColor, toggle, togglebtn }) {
         color={color}
         toggle={toggle}
         togglebtn={togglebtn}
-        show={show}
-        setshow={setshow}
       />
       {/* <CategoryManu /> */}
       {/* <CategoryManu  /> */}
-      {show && (
+
+      {/* {show && (
         <Model setOpen={setOpen} open={open} show={show} setshow={setshow} />
-      )}
+      )} */}
       <FoodItem
         addData={addData}
         filter={filter}

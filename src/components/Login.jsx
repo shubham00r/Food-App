@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Login = ({ show, setshow, page, setpage }) => {
+  const Navigate = useNavigate();
   const [input, setinput] = useState({
     email: "",
     password: "",
@@ -17,6 +19,9 @@ const Login = ({ show, setshow, page, setpage }) => {
         type: "success",
         hideProgressBar: true,
       });
+
+      localStorage.setItem("login", true);
+      Navigate("/");
     } else {
       toast("User not Found ", {
         type: "error",
@@ -37,7 +42,7 @@ const Login = ({ show, setshow, page, setpage }) => {
         <h3 className="pt-1 text-base ">Log in or Sign up</h3>
         <form onSubmit={handleLogin} className="px-12 pt-2">
           <input
-            className="w-full pl-2 text-black border-2 border-solid rounded outline-none h-11 "
+            className="w-full pl-2 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-black border-2 border-solid rounded outline-none h-11 "
             value={input.email}
             name="email"
             onChange={(e) =>
@@ -48,7 +53,7 @@ const Login = ({ show, setshow, page, setpage }) => {
           />{" "}
           <br />
           <input
-            className="w-full pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
+            className="w-full focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 pl-2 mt-2 text-black border-2 border-solid rounded outline-none h-11 "
             type="password"
             name="password"
             value={input.password}

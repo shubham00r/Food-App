@@ -6,7 +6,7 @@ import FoodData from "../Data/FoodData";
 import NoItem from "./NoItem";
 // console.log(FoodData);
 function Cart({ cartData, count, remove }) {
-  // console.log(count);
+  console.log(count);
   const [activeCart, setactiveCart] = useState(false);
 
   return (
