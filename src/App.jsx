@@ -14,6 +14,7 @@ function App() {
   const [bgColor, setbgColor] = useState("black");
   const [color, setColor] = useState("white");
   const [toggle, settoggle] = useState(true);
+  const [page, setpage] = useState(true);
 
   const togglebtn = () => {
     settoggle(!toggle);
@@ -66,7 +67,10 @@ function App() {
               element={<Cart setbgColor={setbgColor} setColor={setColor} />}
             />
           </Route>
-          <Route path="/default" element={<Default />} />
+          <Route
+            path="/default"
+            element={<Default page={page} setpage={setpage} />}
+          />
         </Routes>
       </BrowserRouter>
     </>

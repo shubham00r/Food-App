@@ -3,9 +3,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { AiOutlineClose } from "react-icons/ai";
 import Login from "./Login";
 import Signup from "./Signup";
-const Model = ({ open, setOpen, show, setshow }) => {
+const Model = ({ open, setOpen, show, setshow, setpage, page }) => {
   // const [show, setShow] = useState(false);
-  const [page, setpage] = useState(true);
+  // const [page, setpage] = useState(true);
   return (
     <>
       <Transition.Root show={open} as={Fragment}>
@@ -35,7 +35,7 @@ const Model = ({ open, setOpen, show, setshow }) => {
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
                 <Dialog.Panel className="w-full transition-all transform bg-white rounded-lg shadow-xl md:my-8 md:max-w-xl">
-                  <div className=" ">
+                  <div className="">
                     {page ? (
                       <div>
                         <Login

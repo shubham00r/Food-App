@@ -3,7 +3,13 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
 function ItemCart({ cartData, remove }) {
   return (
-    <div className="flex-col flex-wrap gap-2 p-2 mb-3 rounded-lg shadow-md flex-">
+    <div
+      // style={{
+      //   maxHeight: "360px",
+      //   overflowY: "scroll",
+      // }}
+      className="flex-col flex-wrap gap-2 p-2 mb-3 rounded-lg shadow-md flex-"
+    >
       {cartData.map((item) => {
         return (
           <>

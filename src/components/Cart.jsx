@@ -12,7 +12,7 @@ function Cart({ cartData, count, remove }) {
   return (
     <>
       <div
-        className={`fixed top-0 right-0 w-full md:w-[20vw] h-full bg-slate-50 ${
+        className={`fixed top-0 right-0 w-full md:w-[20vw] h-full  bg-slate-50 ${
           activeCart ? "translate-x-0 " : "translate-x-full"
         } transition-all duration-500 z-50`}
       >
@@ -26,6 +26,7 @@ function Cart({ cartData, count, remove }) {
         {count > 0 ? (
           <div>
             <ItemCart cartData={cartData} remove={remove} />
+
             <div className="absolute bottom-0 text-slate-800">
               <h3 className="font-semibold">Item</h3>
               <h3 className="font-semibold">Total Amount:</h3>

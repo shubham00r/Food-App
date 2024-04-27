@@ -1,9 +1,18 @@
 import React, { useState } from "react";
 import Model from "./Model";
 
-const Default = () => {
+const Default = ({ setpage, page }) => {
   const [show, setshow] = useState(false);
   const [open, setOpen] = useState(true);
+  const handleSignup = () => {
+    setpage(false);
+    setshow(!show);
+  };
+  const handleLogin = () => {
+    setpage(true);
+    setshow(!show);
+  };
+
   return (
     <div className="Default">
       <div className="relative">
@@ -13,10 +22,16 @@ const Default = () => {
         />
         <div className="absolute top-2">
           <button
-            onClick={() => setshow(!show)}
+            onClick={handleLogin}
             className="bg-[#16A34A] p-[9px] w-20 rounded mr-5"
           >
             Login
+          </button>
+          <button
+            onClick={handleSignup}
+            className="bg-[#16A34A] p-[9px] w-20 rounded mr-5"
+          >
+            Signup
           </button>
         </div>
         <div className="absolute top-32  text-center right-[370px]">
@@ -27,7 +42,14 @@ const Default = () => {
         </div>
       </div>
       {show && (
-        <Model setOpen={setOpen} open={open} show={show} setshow={setshow} />
+        <Model
+          setOpen={setOpen}
+          open={open}
+          show={show}
+          setshow={setshow}
+          setpage={setpage}
+          page={page}
+        />
       )}
     </div>
   );

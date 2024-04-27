@@ -11,6 +11,7 @@ function Navbar({ bgcolor, color, togglebtn, toggle }) {
     localStorage.removeItem("login");
     navigate("/default");
   };
+
   return (
     <div
       className=""
