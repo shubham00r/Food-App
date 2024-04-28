@@ -20,16 +20,24 @@ const Default = ({ setpage, page }) => {
           src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png"
           alt=""
         />
-        <div className="absolute top-2">
+        <div className="absolute right-2 top-2">
           <button
+            style={{
+              border: "1px solid white ",
+              transition: "0.5s  ease-in-out",
+            }}
             onClick={handleLogin}
-            className="bg-[#16A34A] p-[9px] w-20 rounded mr-5"
+            className="bg-transparent p-[9px] hover:bg-green-600 	 font-bold w-20 rounded mr-5"
           >
             Login
           </button>
           <button
+            style={{
+              border: "1px solid white ",
+              transition: "0.5s  ease-in-out",
+            }}
             onClick={handleSignup}
-            className="bg-[#16A34A] p-[9px] w-20 rounded mr-5"
+            className="bg-transparent hover:bg-green-600 p-[9px]  font-bold w-20 rounded mr-5"
           >
             Signup
           </button>
