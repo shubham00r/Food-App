@@ -14,6 +14,13 @@ const Signup = ({ show, setshow, page, setpage }) => {
     password: "",
   });
   // let cart = [];
+  // const check = () => {
+  //   if (input.password.length < 5) {
+  //     console.log("no");
+  //   } else {
+  //     console.log("yes");
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +28,16 @@ const Signup = ({ show, setshow, page, setpage }) => {
     if (input.name == "" || input.email == "" || input.password == "") {
       setTimeout(() => {
         toast("Please fill the Form", {
+          type: "error",
+          hideProgressBar: true,
+          theme: "dark",
+        });
+        // check();
+      }, 1000);
+    } else if (input.password.length < 6) {
+      SetLoading(true);
+      setTimeout(() => {
+        toast("Please enter 6 digit password ", {
           type: "error",
           hideProgressBar: true,
           theme: "dark",
@@ -38,7 +55,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
           type: "success",
           hideProgressBar: true,
         });
-        cart.push(input.email);
+
         setshow(false);
         SetLoading(false);
       }, 1000);

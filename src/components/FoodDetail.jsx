@@ -15,7 +15,7 @@ function FoodDetail() {
   console.log(product);
   return (
     <div className="">
-      <div className="flex justify-between ">
+      <div className="flex justify-between px-20 ">
         <div className="w-96">
           <img src={product.img} alt="" />
         </div>
@@ -30,7 +30,7 @@ function FoodDetail() {
               <p>Inclusive of all taxes</p>
             </div>
             <div>
-              <button className="p-1  text-sm h-9 text-white bg-green-400 rounded-md hover:bg-green-700">
+              <button className="p-1 text-sm text-white bg-green-400 rounded-md h-9 hover:bg-green-700">
                 ADD TO CART
               </button>
             </div>

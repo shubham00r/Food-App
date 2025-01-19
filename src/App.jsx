@@ -11,26 +11,13 @@ import ProRoute from "./Service/ProRoute";
 import Default from "./components/Default";
 
 function App() {
-  const [bgColor, setbgColor] = useState("black");
-  const [color, setColor] = useState("white");
+  // const [bgColor, setbgColor] = useState("black");
+  // const [color, setColor] = useState("white");
   const [toggle, settoggle] = useState(true);
   const [page, setpage] = useState(true);
 
-  const togglebtn = () => {
-    settoggle(!toggle);
-    if (toggle) {
-      setbgColor("#ffff");
-      setColor("black");
-      // document.querySelectorAll("body").style.backgroundColor = "#cbc5c5";
-    } else {
-      setbgColor("black");
-      setColor("#ffff");
-      // document.querySelectorAll("body").style.backgroundColor = "#cbc5c5";
-    }
-  };
-
   return (
-    <>
+    <div className="h-full py-2 bg-pink-100 dark:bg-black">
       <ToastContainer
         position="top-center"
         autoClose={3000}
@@ -46,26 +33,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProRoute />}>
-            <Route
-              path="/"
-              element={
-                <Home
-                  bgcolor={setbgColor}
-                  color={setColor}
-                  toggle={toggle}
-                  togglebtn={togglebtn}
-                />
-              }
-            />
+            <Route path="/" element={<Home />} />
 
             <Route path="/product/:id/" element={<FoodDetail />} />
 
             <Route path="/success" element={<Succes />} />
             <Route path="/*" element={<Error />} />
-            <Route
-              path="/cart"
-              element={<Cart setbgColor={setbgColor} setColor={setColor} />}
-            />
+            <Route path="/cart" element={<Cart />} />
           </Route>
           <Route
             path="/default"
@@ -73,7 +47,7 @@ function App() {
           />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 
