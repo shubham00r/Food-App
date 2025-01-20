@@ -6,9 +6,11 @@ import FoodData from "../Data/FoodData";
 import NoItem from "./NoItem";
 // console.log(FoodData);
 function Cart({ cartData, count, remove }) {
-  console.log(count);
+  console.log(cartData);
   const [activeCart, setactiveCart] = useState(false);
 
+  const TotalCount = cartData.reduce((acc, item) => acc + item.price, 0);
+  console.log(TotalCount);
   return (
     <>
       <div
@@ -27,13 +29,66 @@ function Cart({ cartData, count, remove }) {
           <div>
             <ItemCart cartData={cartData} remove={remove} />
 
-            <div className="absolute bottom-0 text-slate-800">
-              <h3 className="font-semibold">Item</h3>
-              <h3 className="font-semibold">Total Amount:</h3>
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center justify-center text-slate-800">
+              <h3 className="font-semibold"></h3>
               <hr className="w-[90vw] md:w-[18vw]  my-2" />
               <button className="px-3 py-2 font-bold bg-green-500 rounded-lg text-slate-100 w-[90vw] md:w-[18vw] mb-5">
                 Checkout
               </button>
+            </div>
+
+            <div className="max-w-md p-4 mx-auto bg-white rounded-lg shadow-md">
+              {/* Bill Details Section */}
+              <div className="mb-6">
+                <h3 className="mb-4 text-lg font-bold">Bill details</h3>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Total Amount</span>
+                  </div>
+                  <div>
+                    <span className="font-bold">{TotalCount}</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Total Item:</span>
+                  </div>
+                  <div>
+                    <span className="font-bold">{cartData.length}</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Delivery charge</span>
+                  </div>
+                  <div>
+                    <span className="mr-2 text-gray-500 line-through">₹25</span>
+                    <span className="font-bold text-green-500">FREE</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center">
+                    <span className="text-gray-600">Handling charge</span>
+                    <span
+                      className="ml-1 text-gray-400 cursor-pointer"
+                      title="Handling charges include packaging and delivery adjustments."
+                    >
+                      ℹ️
+                    </span>
+                  </div>
+                  <span className="font-bold">₹5</span>
+                </div>
+              </div>
+
+              {/* Cancellation Policy Section */}
+              {/* <div className="p-4 rounded-lg bg-gray-50">
+                <h3 className="mb-1 font-bold ">Cancellation Policy</h3>
+                <p className="text-sm text-gray-600">
+                  Orders cannot be cancelled once packed for delivery. In case
+                  of unexpected delays, a refund will be provided, if
+                  applicable.
+                </p>
+              </div> */}
             </div>
           </div>
         ) : (
