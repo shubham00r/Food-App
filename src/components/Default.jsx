@@ -50,7 +50,7 @@ const Default = ({ setpage, page }) => {
         {/* Center Text */}
         <div className="absolute text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
           <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl">
-            Flavoro
+            YummyYard
           </h1>
           <p className="text-xl leading-relaxed text-white md:text-2xl">
             Find the best restaurants, cafés and <br /> bars in India

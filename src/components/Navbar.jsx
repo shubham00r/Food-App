@@ -1,53 +1,49 @@
-import React, { useState } from "react";
-import { BsToggle2Off } from "react-icons/bs";
-import { BsToggle2On } from "react-icons/bs";
-import FoodData from "../Data/FoodData";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import ToggleButton from "./ToggleButton";
+import { useNavigate } from "react-router-dom";
 
-// const allCategories = ["all", ...new Set(FoodData.map((item) => item.name))];
-// console.log(allCategories);
 function Navbar({ toggleDarkMode, input, SetInput }) {
   const navigate = useNavigate();
+
   const userRemove = () => {
-    // localStorage.removeItem("user");
     localStorage.removeItem("login");
     navigate("/default");
   };
 
-  // serachBtn();
   return (
     <div className="">
-      <nav className="flex flex-col justify-between py-3 mx-6 mb-10 lg:flex-row ">
-        <div>
-          <div className="flex items-center gap-3">
-            <h3 className="text-xl font-bold text-black dark:text-green-400">
-              {new Date().toUTCString().slice(0, 16)}
-            </h3>
-            <div>
-              <ToggleButton toggleDarkMode={toggleDarkMode} />
-            </div>
-          </div>
-          <h1 className="text-2xl font-bold text-black dark:text-slate-100 ">
-            Flavoro Foods
+      <nav className="flex flex-col items-center justify-between px-6 py-4 space-y-4 lg:flex-row lg:space-y-0">
+        {/* Left Section */}
+        <div className="flex items-center space-x-4">
+          <h1 className="text-2xl font-bold text-black dark:text-slate-100">
+            YummyYard
           </h1>
+          <ToggleButton toggleDarkMode={toggleDarkMode} />
         </div>
-        <div>
+
+        {/* Date */}
+        <div className="text-lg font-semibold text-black dark:text-green-400">
+          {new Date().toUTCString().slice(0, 16)}
+        </div>
+
+        {/* Right Section */}
+        <div className="flex flex-col items-center w-full space-y-4 lg:flex-row lg:space-y-0 lg:space-x-4 lg:w-auto">
+          {/* Logout Button */}
           <button
             onClick={userRemove}
-            className="bg-black  text-slate-50 dark:text-[#000]  dark:bg-green-400 p-[9px] w-20 rounded mr-5"
+            className="px-6 py-2 transition-colors bg-black rounded-lg text-slate-50 dark:text-black dark:bg-green-400 hover:bg-gray-800 dark:hover:bg-green-500"
           >
             Logout
           </button>
+
+          {/* Search Input */}
           <input
             type="search"
-            name="search"
-            id=""
             placeholder="Search here"
             value={input}
             onChange={(e) => SetInput(e.target.value)}
             autoComplete="off"
-            className="p-3 border border-gray-400 text-sm rounded-lg outline-none w-full lg:w-[25vw]  text-slate-950"
+            className="w-full lg:w-[300px] py-2 px-4 border border-gray-400 text-sm rounded-lg outline-none text-slate-950 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-green-400"
           />
         </div>
       </nav>
