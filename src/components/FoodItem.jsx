@@ -3,7 +3,7 @@ import FoodCard from "./FoodCard";
 import FoodData from "../Data/FoodData";
 import CategoryManu from "./CategoryManu";
 
-function FoodItem({ addData, filter, same, setFilter, filterData }) {
+function FoodItem({ addData, filter, same, setFilter, filterData, search }) {
   // const [filteredFoods, setFilteredFoods] = useState([filterData]);
 
   return (

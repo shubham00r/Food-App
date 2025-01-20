@@ -73,8 +73,10 @@ function Home({ color, bgColor, toggle, togglebtn }) {
   const filterData = FoodData.filter((item) =>
     item.name.toLowerCase().includes(input.toLowerCase())
   );
-
-  console.log(filterData);
+  // useEffect(() => {
+  //   SetSearch(filterData);
+  //   console.log(search);
+  // }, [filterData]);
   return (
     <>
       <Navbar
@@ -90,6 +92,7 @@ function Home({ color, bgColor, toggle, togglebtn }) {
         <Model setOpen={setOpen} open={open} show={show} setshow={setshow} />
       )} */}
       <FoodItem
+        // search={search}
         addData={addData}
         filter={filter}
         same={same}
