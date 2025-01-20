@@ -16,39 +16,49 @@ const Default = ({ setpage, page }) => {
   return (
     <div className="Default">
       <div className="relative">
+        {/* Background Image */}
         <img
           src="https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png"
-          alt=""
+          alt="Background"
+          className="object-cover w-full h-screen"
         />
-        <div className="absolute right-2 top-2">
+
+        {/* Login & Signup Buttons */}
+        <div className="absolute flex gap-4 right-4 top-4">
           <button
             style={{
-              border: "1px solid white ",
-              transition: "0.5s  ease-in-out",
+              border: "1px solid white",
+              transition: "0.5s ease-in-out",
             }}
             onClick={handleLogin}
-            className="bg-transparent p-[9px] hover:bg-green-600 	 font-bold w-20 rounded mr-5"
+            className="w-20 p-2 font-bold text-white bg-transparent rounded hover:bg-green-600"
           >
             Login
           </button>
           <button
             style={{
-              border: "1px solid white ",
-              transition: "0.5s  ease-in-out",
+              border: "1px solid white",
+              transition: "0.5s ease-in-out",
             }}
             onClick={handleSignup}
-            className="bg-transparent hover:bg-green-600 p-[9px]  font-bold w-20 rounded mr-5"
+            className="w-20 p-2 font-bold text-white bg-transparent rounded hover:bg-green-600"
           >
             Signup
           </button>
         </div>
-        <div className="absolute top-32  text-center right-[370px]">
-          <h1>Flavoro</h1>
-          <p className="text-3xl font-normal leading-10 ">
+
+        {/* Center Text */}
+        <div className="absolute text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+          <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl">
+            Flavoro
+          </h1>
+          <p className="text-xl leading-relaxed text-white md:text-2xl">
             Find the best restaurants, cafés and <br /> bars in India
           </p>
         </div>
       </div>
+
+      {/* Model Component */}
       {show && (
         <Model
           setOpen={setOpen}
