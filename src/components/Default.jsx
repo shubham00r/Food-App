@@ -52,8 +52,9 @@ const Default = ({ setpage, page }) => {
           <h1 className="mb-4 text-4xl font-extrabold text-white md:text-5xl">
             YummyYard
           </h1>
-          <p className="text-xl leading-relaxed text-white md:text-2xl">
-            Find the best restaurants, cafés and <br /> bars in India
+          <p className="text-sm leading-snug text-white sm:text-base sm:leading-relaxed md:text-xl lg:text-2xl xl:text-3xl">
+            Find the best restaurants, cafés, and{" "}
+            <br className="hidden sm:block" /> bars in India
           </p>
         </div>
       </div>

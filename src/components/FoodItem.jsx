@@ -3,13 +3,13 @@ import FoodCard from "./FoodCard";
 import FoodData from "../Data/FoodData";
 import CategoryManu from "./CategoryManu";
 
-function FoodItem({ addData, filter, same, setFilter, filterData, search }) {
+function FoodItem({ addData, filter, same, setFilter, search }) {
   // const [filteredFoods, setFilteredFoods] = useState([filterData]);
 
   return (
     <>
       <CategoryManu same={same} setFilter={setFilter} />
-      <div className="flex flex-wrap justify-center gap-10 mx-6 my-10 lg:justify-start">
+      <div className="grid grid-cols-1 gap-5 mx-10 mt-10 md:grid-cols-3 lg:justify-start">
         {filter.map((food) => {
           // console.log(filter);
           return (

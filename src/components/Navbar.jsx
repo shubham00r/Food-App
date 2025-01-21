@@ -2,7 +2,7 @@ import React from "react";
 import ToggleButton from "./ToggleButton";
 import { useNavigate } from "react-router-dom";
 
-function Navbar({ toggleDarkMode, input, SetInput }) {
+function Navbar({ toggleDarkMode, input, SetInput, handelSearch }) {
   const navigate = useNavigate();
 
   const userRemove = () => {
@@ -15,6 +15,7 @@ function Navbar({ toggleDarkMode, input, SetInput }) {
       <nav className="flex flex-col items-center justify-between px-6 py-4 space-y-4 lg:flex-row lg:space-y-0">
         {/* Left Section */}
         <div className="flex items-center space-x-4">
+          {/* <img className="w-10 h-10" src="/img/foodlogo.png" alt="" /> */}
           <h1 className="text-2xl font-bold text-black dark:text-slate-100">
             YummyYard
           </h1>
@@ -42,9 +43,9 @@ function Navbar({ toggleDarkMode, input, SetInput }) {
             placeholder="Search here"
             value={input}
             onChange={(e) => SetInput(e.target.value)}
-            autoComplete="off"
             className="w-full lg:w-[300px] py-2 px-4 border border-gray-400 text-sm rounded-lg outline-none text-slate-950 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-green-400"
           />
+          <button onClick={() => handelSearch()}>click</button>
         </div>
       </nav>
     </div>

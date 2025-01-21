@@ -33,6 +33,7 @@ const Signup = ({ show, setshow, page, setpage }) => {
           theme: "dark",
         });
         // check();
+        SetLoading(false);
       }, 1000);
     } else if (input.password.length < 6) {
       SetLoading(true);
