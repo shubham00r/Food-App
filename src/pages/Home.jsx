@@ -70,9 +70,18 @@ function Home({ color, bgColor, toggle, togglebtn }) {
     }
   }, []);
 
-  const filterData = FoodData.filter((item) =>
-    item.name.toLowerCase().includes(input.toLowerCase())
-  );
+  const handelSearch = () => {
+    const filterData = FoodData.filter((item) =>
+      item.name.toLowerCase().includes(input.toLowerCase())
+    );
+    setFilter(filterData);
+
+    console.log(filterData);
+
+    if (filterData.length === 0) {
+      console.log("data not found");
+    }
+  };
   // useEffect(() => {
   //   SetSearch(filterData);
   //   console.log(search);
@@ -84,6 +93,7 @@ function Home({ color, bgColor, toggle, togglebtn }) {
         input={input}
         SetInput={SetInput}
         toggleDarkMode={toggleDarkMode}
+        handelSearch={handelSearch}
       />
       {/* <CategoryManu /> */}
       {/* <CategoryManu  /> */}
@@ -97,7 +107,6 @@ function Home({ color, bgColor, toggle, togglebtn }) {
         filter={filter}
         same={same}
         setFilter={setFilter}
-        filterData={filterData}
       />
       <Cart cartData={cartData} count={cartData.length} remove={remove} />
     </>

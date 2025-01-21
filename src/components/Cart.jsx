@@ -46,7 +46,7 @@ function Cart({ cartData, count, remove }) {
                     <span className="text-gray-600">Total Amount</span>
                   </div>
                   <div>
-                    <span className="font-bold">{TotalCount}</span>
+                    <span className="font-bold">₹{TotalCount}</span>
                   </div>
                 </div>
                 <div className="flex items-center justify-between mb-3">
@@ -98,11 +98,11 @@ function Cart({ cartData, count, remove }) {
 
       <div
         onClick={() => setactiveCart(!activeCart)}
-        className="fixed flex items-center w-auto p-3 text-5xl bg-green-600 rounded shadow-md cursor-pointer bottom-4 right-4"
+        className="fixed flex items-center w-auto p-2 text-5xl bg-green-600 rounded shadow-md cursor-pointer md:p-3 bottom-4 right-4"
       >
-        <MdShoppingCart className="text-4xl"></MdShoppingCart>
+        <MdShoppingCart className="text-xl md:text-4xl"></MdShoppingCart>
         {count > 0 ? (
-          <span className="text-base font-bold text-slate-50 ">
+          <span className="text-xs md:text-base md:font-bold text-slate-50">
             {count} items
           </span>
         ) : (

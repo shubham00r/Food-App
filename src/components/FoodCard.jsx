@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function FoodCard({ id, img, desc, rating, price, name, addData, food }) {
   return (
-    <div className="font-bold w-[300px] p-6  bg-slate-500 dark:bg-slate-900 flex flex-col rounded-lg gap-4 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
+    <div className="font-bold  w-full md:w-[300px] p-6  bg-slate-500 dark:bg-slate-900 flex flex-col rounded-lg gap-4 shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
       <Link to={`product/${id}`} className="overflow-hidden rounded-md">
         <img
           src={img}
@@ -16,7 +16,7 @@ function FoodCard({ id, img, desc, rating, price, name, addData, food }) {
 
       <div className="flex items-center justify-between text-sm text-white">
         <h2 className="text-lg font-semibold truncate">{name}</h2>
-        <span className="text-base font-medium text-green-400">{price}</span>
+        <span className="text-base font-medium text-green-400">₹{price}</span>
       </div>
 
       <p className="text-sm font-light text-gray-300 dark:text-gray-200">
